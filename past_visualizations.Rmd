@@ -80,7 +80,7 @@ ggplot(ForestFires, aes(x = Temp, y = Day, fill = Day)) +
   ggtitle("Distribution of Temperature given Day of the Week") +
   scale_y_discrete(limits = c("sun", "mon", "tue", "wed", "thu", "fri", "sat"),
                    labels = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")) +
-  scale_fill_discrete(labels = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"))
+  guides(fill = "none")
 ```
 
 
