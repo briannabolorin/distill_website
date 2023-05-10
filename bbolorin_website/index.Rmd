@@ -1,0 +1,26 @@
+---
+title: "Brianna Bolorin"
+description: |
+  Welcome to the website. I hope you enjoy it!
+site: distill::distill_website
+output:
+  postcards::jolla
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+Bucknell University
+
+MATH 230: Data Visualization & Computing
+
+While taking this data visualization course, I have learned how to work with data sets in R studio to effectively represent the data and information they hold through a variety of visualizations. In this online portfolio, I share some of my work throughout the Spring 2023 semester and I utilize data visualization to analyze global fuel consumption and CO<sub>2</sub> emissions from 1990-2020.
+

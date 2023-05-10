@@ -1,0 +1,7 @@
+"0","# Loading in the data set and packages"
+"0","library(ggplot2)"
+"0","library(gganimate)"
+"0","library(gifski)"
+"0","library(png)"
+"0","library(av)"
+"0","energy = read.csv(""energy_data_set.csv"", header = TRUE)"

@@ -1,0 +1,116 @@
+---
+title: "Past Visualizations"
+description: |
+  Visualizations I created using [ggplot2](https://ggplot2.tidyverse.org/) in R for MATH 230 during the Spring 2023 semester.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r, echo = FALSE}
+library(ggplot2)
+```
+
+### 1. Scatterplot with LOESS
+
+
+This scatterplot was created using data from the 2020 Car Models data set in the Lock5Data package in R. The negative slope of the smooth local regression line shows that, on average, the 2020 car models in this data set that had a higher curb weight tended to take less time accelerating from 0 mph to 30 mph. 
+<br>
+
+```{r}
+library(ggplot2)
+library(Lock5Data)
+
+# Scatterplot
+ggplot(Cars2020, aes(x = Weight, y = Acc030)) +
+  geom_point(color = "red") +
+  ylab("Time to Accelerate from 0 to 30 mph (in sec)") +
+  xlab("Curb Weight (in pounds)") +
+  ggtitle("Time to Accelerate from 0 to 30 mph vs. Curb Weight of 2020 Car Models") +
+  geom_smooth(method = "lm", color = "black") +
+  theme(axis.text = element_text(color = "black"))
+```
+
+
+### 2. Histogram with Density Curve
+
+
+This plot was created using data from a paper titled "Are Emily and Greg More Employable Than Lakisha and Jamal? a Field Experiment on Labor Market Discrimination" by Marianne Bertrand and Sendhil Mullainathan. Shown below is a univariate plot consisting of a histogram with bins colored by count that is overlayed with a density plot. This visualization shows the right-skewed distribution of the total years of work experience listed on the resumes in this data set.
+<br>
+
+```{r}
+load("MATH230_Exam1_Data.RData")
+lmd = lmd[complete.cases(lmd), ]
+
+
+# Histogram
+ggplot(lmd, aes(x = years_exp, y = ..density..)) +
+  geom_histogram(binwidth = 3,
+                 aes(fill = ..count..)) +
+  geom_density() +
+  ggtitle("Histogram and Density Plot of Number of Years of Experience 
+          on the Resume") +
+  labs(x = "Years of Experience",
+       y = "Density") +
+  scale_fill_continuous(low = "#FBB000",
+                       high = "#EF4136",
+                       name = "Count")
+```
+
+
+### 3. Density Curves with [ggridges](https://github.com/wilkelab/ggridges)
+
+
+The data visualized below were recorded in the Montesinho natural park in Portugal between January 2000 and December 2003. The density curves, with the 2nd and 90th percentiles denoted by vertical lines, show the distribution of temperature in the park given the day of the week.
+<br>
+
+
+```{r}
+library(ggridges)
+
+# Density plots with 2nd and 90th percentiles indicated by vertical lines
+ggplot(ForestFires, aes(x = Temp, y = Day, fill = Day)) +
+  stat_density_ridges(quantile_lines = TRUE, 
+                      quantiles = c(0.02, 0.9),
+                      alpha = 0.75) +
+  scale_point_size_continuous(range = c(1, 5)) +
+  labs(x = "Temperature (in degrees C)") +
+  ggtitle("Distribution of Temperature given Day of the Week") +
+  scale_y_discrete(limits = c("sun", "mon", "tue", "wed", "thu", "fri", "sat"),
+                   labels = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")) +
+  scale_fill_discrete(labels = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"))
+```
+
+
+
+### 4. High Density Regions with [ggdensity](https://github.com/jamesotto852/ggdensity)
+
+Below is a plot illustrating four different high density regions (HDRs) with rug plots on each axis to show the distribution of each variable. The data comes from the Nutrition Study data set in the Lock5Data package in R. As suggested by the highest density region, most individuals in this study consumed around 1000 $\mu$g of dietary retinol per day and had a plasma retinol level of around 500 ng/mL.
+
+
+```{r}
+data("NutritionStudy")
+library(ggdensity)
+
+# HDR plot
+ggplot(NutritionStudy, aes(x = RetinolDiet, y = RetinolPlasma)) +
+  geom_hdr() +
+  geom_hdr_rug(aes(fill = after_stat(probs)), alpha = 1, sides = "lb") + 
+  scale_fill_brewer(palette = "PuRd") + 
+  labs(x = "Dietary retinol consumed (mcg/day)",
+       y = "Plasma retinol (ng/mL)") +
+  ggtitle("Plasma Retinol vs. Dietary Retinol Consumption") +
+  guides(alpha = "none")
+```
+
+
+
+### 5. Confidence Interval Shiny App
+
+
+As a part of a group project, I worked on developing these interactive visualizations to demonstrate the concepts of confidence intervals and levels to introductory statistics students. Including interactive features allows the user to understand how sampling distributions are constructed, observe how confidence level impacts the width of their respective confidence interval, and how sample size alters the margin of error.
+<br>
+
+<iframe src="https://rconnect.bucknell.edu/content/f39d076b-583b-4999-ac88-2b9ebf262264" height="1000px"></iframe>

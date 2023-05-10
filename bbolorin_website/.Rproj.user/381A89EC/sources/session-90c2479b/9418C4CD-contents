@@ -1,0 +1,19 @@
+name: "bbolorin_website"
+title: "Brianna Bolorin"
+theme: theme.css
+description: |
+  Brianna Bolorin
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Generative Art"
+      href: gen_art.html
+    - text: "Past Visualizations"
+      href: past_visualizations.html
+    - text: "Infographic"
+      href: infographic.html
+    - text: "Data Story"
+      href: data_story.html
+output: distill::distill_article
