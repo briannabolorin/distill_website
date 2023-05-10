@@ -79,7 +79,7 @@ for(i in 1:nrow(energy)){
 
 From 1990 to 2020, we observe a decrease in average total global CO<sub>2</sub> emissions from roughly 2.27 ton/Mtoe to roughly 2.13 ton/Mtoe. However, average global CO<sub>2</sub> emissions from fuel combustion have increased since 1990: over the 31 years from 1990 to 2020, there was an increase from 475 Mt to 722 Mt of CO<sub>2</sub> emitted from fuel combustion.
 
-```{}
+```{r}
 library(gganimate)
 
 anim = ggplot(energy, aes(x = co2_fuel_com, y = after_stat(density), fill = Region)) +
