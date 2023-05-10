@@ -1,9 +1,9 @@
 {
     "id": "E444CD82",
-    "path": "~/Desktop/Distill Website/bbolorin_website/past_visualizations.Rmd",
+    "path": "~/Desktop/distill_website/bbolorin_website/past_visualizations.Rmd",
     "project_path": "past_visualizations.Rmd",
     "type": "r_markdown",
-    "hash": "3542950957",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1681906867766.0,
@@ -13,7 +13,7 @@
         "source_window_id": "",
         "Source": "Source",
         "cursorPosition": "14,0",
-        "scrollLine": "3",
+        "scrollLine": "0",
         "last_setup_crc32": ""
     },
     "folds": "",

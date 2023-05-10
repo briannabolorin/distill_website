@@ -1,6 +1,6 @@
 {
     "id": "B11860BD",
-    "path": "~/Desktop/Distill Website/bbolorin_website/data_story.Rmd",
+    "path": "~/Desktop/distill_website/bbolorin_website/data_story.Rmd",
     "project_path": "data_story.Rmd",
     "type": "r_markdown",
     "hash": "0",
@@ -12,8 +12,8 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "91,39",
-        "scrollLine": "76",
+        "cursorPosition": "273,0",
+        "scrollLine": "267",
         "last_setup_crc32": ""
     },
     "folds": "",
